@@ -6,13 +6,11 @@ var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require('../containers/App');
-var TeamShowContainer = require('../containers/TeamShowContainer');
 
 var router = (
 	<Router history={hashHistory}>
 		<Route path='/'>
 			<IndexRoute component={App} />
-			<Route path='team' component={TeamShowContainer} />
 		</Route>
 	</Router>
 );
