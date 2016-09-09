@@ -13,8 +13,8 @@ var router = (
 	<Router history={hashHistory}>
 		<Route path='/'>
 			<IndexRoute component={App} />
-      <Route path="teams/:team_id/articles/:id" component={ArticleShowContainer} />
 			<Route path='team' component={TeamShowContainer} />
+      <Route path="teams/:team_id/articles/:id" component={ArticleShowContainer} />
 		</Route>
 	</Router>
 );

@@ -1,11 +1,13 @@
 var React = require('react');
 var PlayerContainer = require('../containers/PlayerContainer');
+var ArticleTitle = require('../components/ArticleTitle');
 var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			players: []
+			players: [],
+			articles: []
 		}
 	},
 	componentWillMount: function() {
@@ -13,8 +15,10 @@ var TeamShowContainer = React.createClass({
 		$.ajax({
 			url: url
 		}).done(function(response){
+			debugger;
 			this.setState({
-				players: response.players
+				players: response.players,
+				articles: response.articles
 			})
 		}.bind(this));
 	},
@@ -25,6 +29,15 @@ var TeamShowContainer = React.createClass({
 				{
 					this.state.players.map(function(player){ return <PlayerContainer key={player.id} player={player} /> })
 				}
+				<ul>
+				{
+					this.state.articles.map( function( article ) {
+						return <ArticleTitle
+											key={ article.id }
+											data={ article } />
+					})
+				}
+				</ul>
 			</div>
 		)
 	}

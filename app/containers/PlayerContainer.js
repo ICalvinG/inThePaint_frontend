@@ -17,11 +17,10 @@ var PlayerContainer = React.createClass({
 	},
 	render: function() {
 		return (
-			<PlayerViewComponent 
-				player={this.props.player} 
+			<PlayerViewComponent
+				player={this.props.player}
 				firstName={this.state.firstName}
-				lastName={this.state.lastName}
-				/>
+				lastName={this.state.lastName} />
 		)
 	}
 });
