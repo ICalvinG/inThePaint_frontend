@@ -7,13 +7,12 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require('../containers/App');
 var ArticleShowContainer = require('../containers/ArticleShowContainer');
-var TeamShowContainer = require('../containers/TeamShowContainer');
+
 
 var router = (
 	<Router history={hashHistory}>
 		<Route path='/'>
 			<IndexRoute component={App} />
-			<Route path='team' component={TeamShowContainer} />
       <Route path="teams/:team_id/articles/:id" component={ArticleShowContainer} />
 		</Route>
 	</Router>

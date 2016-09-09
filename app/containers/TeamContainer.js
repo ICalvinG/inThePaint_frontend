@@ -5,17 +5,17 @@ var TeamContainer = React.createClass({
 	contextTypes: {
 		router: React.PropTypes.object.isRequired
 	},
-	handleTeamClick: function(event) {
-		event.preventDefault();
+	// handleTeamClick: function(event) {
+	// 	event.preventDefault();
 
-		this.context.router.push({
-			pathname: '/team',
-			query: {
-				id: this.props.team.id,
-				name: this.props.team.name
-			}
-		});
-	},
+	// 	this.context.router.push({
+	// 		pathname: '/team',
+	// 		query: {
+	// 			id: this.props.team.id,
+	// 			name: this.props.team.name
+	// 		}
+	// 	});
+	// },
 	render: function() {
 		// debugger;
 		return (
