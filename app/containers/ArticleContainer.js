@@ -1,7 +1,7 @@
 var React = require('react');
-var Comment = require('../components/Comment');
+var CommentContainer = require('../containers/CommentContainer');
 
-var Article = React.createClass({
+var ArticleContainer = React.createClass({
   render: function () {
     return (
       <div>
@@ -12,7 +12,7 @@ var Article = React.createClass({
         <h3>Comments</h3>
         {
           this.props.comments.map( function( comment ) {
-            return <Comment
+            return <CommentContainer
                       key={ comment.id }
                       data={ comment } />
           })
@@ -23,4 +23,4 @@ var Article = React.createClass({
   }
 });
 
-module.exports = Article;
+module.exports = ArticleContainer;

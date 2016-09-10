@@ -1,6 +1,6 @@
 var React = require('react');
-var Article = require('../components/Article');
-var CommentForm = require('../components/CommentForm');
+var ArticleContainer = require('../containers/ArticleContainer');
+var CommentFormView = require('../components/CommentFormView');
 var $ = require('jquery');
 
 
@@ -22,6 +22,7 @@ var ArticlesShowContainer = React.createClass({
         article: response.article,
         comments: response.comments
       })
+      console.log(this.state)
     }.bind(this));
   },
   handleUpdatePostComment: function ( event ) {
@@ -49,11 +50,11 @@ var ArticlesShowContainer = React.createClass({
   render: function() {
     return (
       <div>
-        <Article
+        <ArticleContainer
             article={ this.state.article }
             comments={ this.state.comments } />
 
-        <CommentForm
+        <CommentFormView
             onUpdatePostComment={ this.handleUpdatePostComment }
             onSubmit={ this.handleSubmit }
             postComment={ this.state.postComment } />
