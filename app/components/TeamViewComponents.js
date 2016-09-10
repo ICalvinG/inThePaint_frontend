@@ -4,7 +4,7 @@ var TeamViewComponents = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<img src={this.props.team.logo} width="150px;" />
+				<a href="#" onClick={this.props.onTeamClick}><img src={this.props.team.logo} width="100px"/></a>
 			</div>
 		)
 	}

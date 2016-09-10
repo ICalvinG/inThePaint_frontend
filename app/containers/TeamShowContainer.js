@@ -1,5 +1,5 @@
 var React = require('react');
-var PlayerContainer = require('../containers/PlayerContainer');
+// var PlayerContainer = require('../containers/PlayerContainer');
 var ArticleTitle = require('../components/ArticleTitle');
 var $ = require('jquery');
 
@@ -26,9 +26,9 @@ var TeamShowContainer = React.createClass({
 		// debugger;
 		return (
 			<div>
-				{
+				{/*
 					this.state.players.map(function(player){ return <PlayerContainer key={player.id} player={player} /> })
-				}
+				*/}
 				<ul>
 				{
 					this.state.articles.map( function( article ) {
