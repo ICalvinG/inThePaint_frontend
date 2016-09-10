@@ -1,5 +1,5 @@
 var React = require('react');
-var TeamViewComponents = require('../components/TeamViewComponents');
+var TeamView = require('../components/TeamView');
 
 var TeamContainer = React.createClass({
 	contextTypes: {
@@ -20,7 +20,7 @@ var TeamContainer = React.createClass({
 	render: function() {
 		// debugger;
 		return (
-				<TeamViewComponents team={this.props.team} onTeamClick={this.handleTeamClick} />
+				<TeamView team={this.props.team} onTeamClick={this.handleTeamClick} />
 		)
 	}
 });

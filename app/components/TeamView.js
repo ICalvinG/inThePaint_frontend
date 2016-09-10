@@ -1,6 +1,6 @@
 var React = require('react');
 
-var TeamViewComponents = React.createClass({
+var TeamView = React.createClass({
 	render: function() {
 		return (
 			<div>
@@ -10,4 +10,4 @@ var TeamViewComponents = React.createClass({
 	}
 });
 
-module.exports = TeamViewComponents;
+module.exports = TeamView;

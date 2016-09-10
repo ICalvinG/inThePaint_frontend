@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Comment = React.createClass({
+var CommentContainer = React.createClass({
   render: function () {
     return (
       <div>
@@ -11,4 +11,4 @@ var Comment = React.createClass({
 
 });
 
-module.exports = Comment;
+module.exports = CommentContainer;
