@@ -1,6 +1,6 @@
 var React = require('react');
 // var PlayerContainer = require('../containers/PlayerContainer');
-var ArticleTitle = require('../components/ArticleTitle');
+var ArticleTitleContainer = require('../containers/ArticleTitleContainer');
 var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
@@ -15,7 +15,6 @@ var TeamShowContainer = React.createClass({
 		$.ajax({
 			url: url
 		}).done(function(response){
-			debugger;
 			this.setState({
 				players: response.players,
 				articles: response.articles
@@ -32,7 +31,7 @@ var TeamShowContainer = React.createClass({
 				<ul>
 				{
 					this.state.articles.map( function( article ) {
-						return <ArticleTitle
+						return <ArticleTitleContainer
 											key={ article.id }
 											data={ article } />
 					})

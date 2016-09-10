@@ -1,7 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
 
-var ArticleTitle = React.createClass({
+var ArticleTitleContainer = React.createClass({
   render: function () {
     return (
       <li>
@@ -11,4 +11,4 @@ var ArticleTitle = React.createClass({
   }
 });
 
-module.exports = ArticleTitle;
+module.exports = ArticleTitleContainer;

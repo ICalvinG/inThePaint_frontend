@@ -1,6 +1,6 @@
 var React = require('react');
 
-var CommentForm = React.createClass({
+var CommentFormView = React.createClass({
   render: function () {
     return (
       <form onSubmit={ this.props.onSubmit }>
@@ -12,4 +12,4 @@ var CommentForm = React.createClass({
   }
 });
 
-module.exports = CommentForm;
+module.exports = CommentFormView;
