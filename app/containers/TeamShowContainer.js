@@ -1,8 +1,8 @@
 var React = require('react');
 var TeamShowHeader = require('../components/TeamShowHeader');
 var TeamShowLinks = require('../components/TeamShowLinks');
-var PlayersContainer = require('../containers/PlayersContainer');
-var ArticlesContainer = require('../containers/ArticlesContainer');
+var TeamShowPlayersContainer = require('../containers/TeamShowPlayersContainer');
+var TeamShowArticlesContainer = require('../containers/TeamShowArticlesContainer');
 var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
@@ -40,11 +40,11 @@ var TeamShowContainer = React.createClass({
 	render: function(){
 		if ( this.state.roster ) {
 			var teamShowRender =
-				<PlayersContainer
+				<TeamShowPlayersContainer
 						players={ this.state.players } />
 		} else {
 			var teamShowRender =
-				<ArticlesContainer
+				<TeamShowArticlesContainer
 						articles={ this.state.articles } />
 		}
 		return (
