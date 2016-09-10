@@ -8,7 +8,6 @@ var IndexRoute = ReactRouter.IndexRoute;
 var App = require('../containers/App');
 var ArticleShowContainer = require('../containers/ArticleShowContainer');
 var TeamShowContainer = require('../containers/TeamShowContainer');
-var PlayersContainer = require('../containers/PlayersContainer');
 
 
 var router = (
