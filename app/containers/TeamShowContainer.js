@@ -1,13 +1,17 @@
 var React = require('react');
-// var PlayerContainer = require('../containers/PlayerContainer');
-var ArticleTitleContainer = require('../containers/ArticleTitleContainer');
+var TeamShowHeader = require('../components/TeamShowHeader');
+var TeamShowLinks = require('../components/TeamShowLinks');
+var TeamShowPlayersContainer = require('../containers/TeamShowPlayersContainer');
+var TeamShowArticlesContainer = require('../containers/TeamShowArticlesContainer');
 var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
 	getInitialState: function() {
 		return {
+			team: {},
 			players: [],
-			articles: []
+			articles: [],
+			roster: false
 		}
 	},
 	componentWillMount: function() {
@@ -16,27 +20,42 @@ var TeamShowContainer = React.createClass({
 			url: url
 		}).done(function(response){
 			this.setState({
+				team: response.team,
 				players: response.players,
 				articles: response.articles
 			})
 		}.bind(this));
 	},
+	handleUpdateRender: function( handler ) {
+		if ( handler === "roster" ) {
+			this.setState({
+				roster: true
+			});
+		} else {
+			this.setState({
+				roster: false
+			})
+		}
+	},
 	render: function(){
-		// debugger;
+		if ( this.state.roster ) {
+			var teamShowRender =
+				<TeamShowPlayersContainer
+						players={ this.state.players } />
+		} else {
+			var teamShowRender =
+				<TeamShowArticlesContainer
+						articles={ this.state.articles } />
+		}
 		return (
 			<div>
-				{/*
-					this.state.players.map(function(player){ return <PlayerContainer key={player.id} player={player} /> })
-				*/}
-				<ul>
-				{
-					this.state.articles.map( function( article ) {
-						return <ArticleTitleContainer
-											key={ article.id }
-											data={ article } />
-					})
-				}
-				</ul>
+				<TeamShowHeader
+						team={ this.state.team } />
+
+				<TeamShowLinks
+						onUpdateRender={ this.handleUpdateRender } />
+
+				{ teamShowRender }
 			</div>
 		)
 	}
