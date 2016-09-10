@@ -15,7 +15,7 @@ var TeamIndexContainer = React.createClass({
 			this.setState({
 				teams: response.teams
 			});
-			console.log(this.state.teams)
+			// console.log(this.state.teams)
 		}.bind(this));
 	},
 	render: function() {
