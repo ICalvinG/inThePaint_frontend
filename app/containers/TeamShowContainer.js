@@ -45,6 +45,7 @@ var TeamShowContainer = React.createClass({
 		} else {
 			var teamShowRender =
 				<TeamShowArticlesContainer
+						team={ this.state.team }
 						articles={ this.state.articles } />
 		}
 		return (
