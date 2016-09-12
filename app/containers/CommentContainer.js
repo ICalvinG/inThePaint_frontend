@@ -6,14 +6,12 @@ var CommentContainer = React.createClass({
   render: function () {
     return (
       <div>
-      	<CommentFormContainer 
+      	<CommentFormContainer
       		comments={this.props.comments}
       		article_id={this.props.article_id}
-      		user_id={this.props.user_id}
-      	/>
-      	<CommentListContainer 
-      		comments={this.props.comments}
-      	/>
+      		user_id={this.props.user_id} />
+      	<CommentListContainer
+      		comments={this.props.comments} />
       </div>
     )
   }

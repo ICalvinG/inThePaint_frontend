@@ -35,10 +35,9 @@ var CommentFormContainer = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<CommentFormView 
+				<CommentFormView
 					onUpdatePostComment={this.handleUpdatePostComment}
-					onSubmit={this.handleSubmit}
-				/>
+					onSubmit={this.handleSubmit} />
 			</div>
 		)
 	}

@@ -10,8 +10,7 @@ var CommentListCiontainer = React.createClass({
 					this.props.comments.map(function(comment){
 						return <CommentBodyContainer
 							key={comment.id}
-							comment={comment}
-							/>
+							comment={comment} />
 					})
 				}
 			</div>
