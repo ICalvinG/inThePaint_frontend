@@ -20,10 +20,12 @@ var TeamIndexContainer = React.createClass({
 	},
 	render: function() {
 		return(
-			<div>
-				{
-					this.state.teams.map(function(team){ return <TeamContainer key={team.id} team={team} /> })
-				}
+			<div className="container all-teams">
+				<div className="row">
+					{
+						this.state.teams.map(function(team){ return <TeamContainer key={team.id} team={team} /> })
+					}
+				</div>
 			</div>
 		)
 	}
