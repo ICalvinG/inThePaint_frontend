@@ -9,8 +9,11 @@ var CommentContainer = React.createClass({
       	<CommentFormContainer
       		comments={this.props.comments}
       		article_id={this.props.article_id}
-      		user_id={this.props.user_id} />
+      		user_id={this.props.user_id}
+          team_id={this.props.team_id}
+          />
       	<CommentListContainer
+          team_id={this.props.team_id}
       		comments={this.props.comments} />
       </div>
     )

@@ -7,9 +7,11 @@ var TeamShowLinks = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <h1 id="roster" onClick={ this.handleClick }>Roster</h1>
-        <h1 id="articles" onClick={ this.handleClick }>Articles</h1>
+      <div className="container">
+        <div className="row">
+          <h1 id="articles" className="col-lg-4 btn btn-primary text-center" onClick={ this.handleClick }>User Articles</h1>
+          <h1 id="roster" className="col-lg-4 col-lg-offset-2 btn btn-primary" onClick={ this.handleClick }>Team Roster</h1>
+        </div>
       </div>
     )
   }

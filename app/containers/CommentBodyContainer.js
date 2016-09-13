@@ -19,9 +19,9 @@ var CommentBodyContainer = React.createClass({
 	},
 	handleSave: function() {
 		$.ajax({
-		url: 'http://localhost:3000/teams/' + this.props.team + "/articles/" + this.props.comment.article_id + "/comments/" + this.props.comment.id,
+		url: 'http://localhost:3000/teams/' + this.props.team_id + "/articles/" + this.props.comment.article_id + "/comments/" + this.props.comment.id,
 		type: 'put',
-		data: {comment: this.state.comment } 
+		data: {comments: { body: this.state.comment, article_id: this.props.comment.article_id, user_id: this.props.comment.article_id } }
 		}).done(function(response){
 			console.log(response)
 		}.bind(this));
@@ -45,8 +45,9 @@ var CommentBodyContainer = React.createClass({
 		)
 	},
 	handleCommentDelete: function() {
+		console.log(this.props)
     $.ajax({
-      url: 'http://localhost:3000/teams/' + this.props.team + "/articles/" + this.props.comment.article_id + "/comments/" + this.props.comment.id,
+      url: 'http://localhost:3000/teams/' + this.props.team_id + "/articles/" + this.state.comment.article_id + "/comments/" + this.state.comment.id,
       type: 'delete',
     }).done(function(response){
     	console.log(response)
