@@ -29,18 +29,18 @@ var CommentBodyContainer = React.createClass({
 	},
 	renderNormal: function() {
 		return (
-			<div>
+			<div className="comment-bottom">
 				<p>{this.state.comment.body}</p>
-				<button type="button" onClick={this.handleEdit}>Edit</button>
-				<button type="button" onClick={this.handleCommentDelete}>Delete</button>
+				<button type="button" className="btn btn-default edit-btn" onClick={this.handleEdit}>Edit</button>
+				<button type="button" className="btn btn-default" onClick={this.handleCommentDelete}>Delete</button>
 			</div>
 		)		
 	},
 	renderForm: function() {
 		return (
-			<div>
-				<textarea onChange={this.handleUpdateComment} value={this.state.comment.body}></textarea>
-				<button type="button" onClick={this.handleSave}>Save</button>
+			<div className="comment-bottom">
+				<textarea className="form-control edit-comment" rows="5" onChange={this.handleUpdateComment} value={this.state.comment.body}></textarea>
+				<button type="button" className="btn btn-default" onClick={this.handleSave}>Save</button>
 			</div>
 		)
 	},

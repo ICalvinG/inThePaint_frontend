@@ -4,7 +4,7 @@ var PlayerContainer = require('../containers/PlayerContainer');
 var PlayersContainer = React.createClass({
   render: function () {
     return(
-      <div>
+      <div className="row">
         <ul>
         {
           this.props.players.map(function(player){
