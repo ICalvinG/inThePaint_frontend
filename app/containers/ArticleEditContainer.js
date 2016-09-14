@@ -5,7 +5,7 @@ var $ = require('jquery');
 var ArticleEditContainer = React.createClass({
   renderButton: function () {
     return (
-      <button id="edit-article-button" type="button" onClick={ this.props.handleToggleEditArticleForm }>Edit</button>
+      <button id="edit-article-button" className="btn btn-default edit-btn" type="button" onClick={ this.props.handleToggleEditArticleForm }>Edit</button>
     )
   },
   renderForm: function () {

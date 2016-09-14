@@ -17,10 +17,10 @@ var PlayerContainer = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
-			<ul className="row">
-				<PlayerView player={this.props.player} firstName={this.state.firstName} lastName={this.state.lastName} />
-			</ul>
+			<div className="container">
+				<ul className="row">
+					<PlayerView player={this.props.player} firstName={this.state.firstName} lastName={this.state.lastName} />
+				</ul>
 			</div>
 		)
 	}

@@ -78,7 +78,7 @@ var ArticleShowContainer = React.createClass({
     var team = this.state.article.team_id
     var user = this.state.article.user_id
     return (
-      <div>
+      <div className="container">
         <h1>{ this.state.article.title }</h1>
 
         <p>{ this.state.article.body }</p>
@@ -92,6 +92,8 @@ var ArticleShowContainer = React.createClass({
 
         <ArticleDeleteButton
             handleDeleteArticle={ this.handleDeleteArticle } />
+
+        <hr></hr>
 
         <h3>Comments</h3>
 
