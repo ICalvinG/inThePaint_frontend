@@ -5,7 +5,7 @@ var CommentFormContainer = require('../containers/CommentFormContainer');
 var CommentContainer = React.createClass({
   render: function () {
     return (
-      <div className="container">
+      <div className="container card comment-container">
       	<CommentFormContainer
       		comments={this.props.comments}
       		article_id={this.props.article_id}
