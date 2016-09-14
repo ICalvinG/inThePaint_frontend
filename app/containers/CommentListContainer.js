@@ -3,6 +3,7 @@ var CommentBodyContainer = require('../containers/CommentBodyContainer');
 
 var CommentListCiontainer = React.createClass({
 	render: function() {
+		var team_id = this.props.team_id;
 		console.log('comment list', this.props)
 		return (
 			<div>
@@ -10,7 +11,8 @@ var CommentListCiontainer = React.createClass({
 					this.props.comments.map(function(comment){
 						return <CommentBodyContainer
 							key={comment.id}
-							comment={comment} />
+							comment={comment}
+							team_id ={team_id} />
 					})
 				}
 			</div>

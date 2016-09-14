@@ -17,7 +17,7 @@ var CommentFormContainer = React.createClass({
   handleSubmit: function ( event ) {
     event.preventDefault();
     $.ajax({
-			url: 'http://localhost:3000/teams/' + this.props.team + "/articles/" + this.props.article_id + "/comments/",
+			url: 'http://localhost:3000/teams/' + this.props.team_id + "/articles/" + this.props.article_id + "/comments/",
       type: "POST",
       data: {
       	comments: { body: this.state.postComment, article_id: this.props.article_id, user_id: this.props.user_id }
