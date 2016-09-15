@@ -12,8 +12,9 @@ var CommentListCiontainer = React.createClass({
 						return <CommentBodyContainer
 							key={comment.id}
 							comment={comment}
-							team_id ={team_id} />
-					})
+							team_id ={team_id}
+							onCommentDelete={ this.props.handleCommentDelete } />
+					}.bind(this))
 				}
 			</div>
 		)
