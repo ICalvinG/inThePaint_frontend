@@ -39,7 +39,7 @@ var ArticleShowContainer = React.createClass({
     } else {
       this.setState({
         editing: false,
-        body: this.props.article.body
+        body: this.state.article.body
       })
     }
   },
