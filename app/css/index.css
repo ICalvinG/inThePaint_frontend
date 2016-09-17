@@ -35,6 +35,11 @@ li {
 
 /* ARTICLES */
 
+.article-logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .form-top {
   margin-top: 10px;
 }
