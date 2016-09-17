@@ -11,14 +11,15 @@ var ArticlePostFormContainer = React.createClass({
   render: function () {
     return (
       <div>
+        <CancelPostArticleButton
+            onToggleArticleForm={ this.props.onToggleArticleForm } />
+            
         <ArticlePostForm
             onUpdate={ this.handleUpdate }
             onSubmitForm={ this.props.onSubmitForm }
             articleTitle={ this.props.articleTitle }
             articleBody={ this.props.articleBody } />
 
-        <CancelPostArticleButton
-            onToggleArticleForm={ this.props.onToggleArticleForm } />
       </div>
     )
   }

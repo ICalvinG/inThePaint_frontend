@@ -1,3 +1,11 @@
+/* MISC */
+
+.card {
+  margin-bottom: 15px;
+  background-color: #ecf0f1;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);  
+}
+
 .jumbotron {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
@@ -21,6 +29,44 @@ h1 {
   color: #000;
 }
 
+li {
+  list-style: none;
+}
+
+/* ARTICLES */
+
+.form-top {
+  margin-top: 10px;
+}
+
+.all-articles {
+  margin-top: 40px;
+}
+
+.each-article {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.no-underline:hover {
+  text-decoration: none;
+}
+
+.article-post-button {
+  margin-bottom: 10px;
+}
+
+.article-form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.article-space {
+  margin-bottom: 10px;
+}
+
+/* COMMENTS */
 
 .new-comment { 
   width: 100%;
@@ -50,8 +96,10 @@ h1 {
   border-bottom: solid 1px #bdc3c7;
 }
 
+/* TEAMS */
+
 .team {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .teams {
@@ -59,15 +107,13 @@ h1 {
   padding-bottom: 50px;
 }
 
-.card {
-  margin-bottom: 15px;
-  background-color: #ecf0f1;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);  
-}
+/* BUTTONS */
 
 .button {
   margin-right: 30px;
 }
+
+/* HOVER ANIMATIONS */
 
 .hvr-grow {
   display: inline-block;
@@ -120,3 +166,10 @@ h1 {
 .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
   right: 0;
 }
+
+
+
+
+
+
+
