@@ -27,3 +27,7 @@ Future Iterations:
 Known bugs:
 
 - Editing a comment throws an error if trying to editing more than once per page load
+
+This application was created by [John Colella](https://github.com/jmcolella) and [Ayaz Uddin](https://github.com/Ayaz2589).
+
+###### &copy; 2016 John Colella Ayaz Uddin
