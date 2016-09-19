@@ -41,9 +41,13 @@ var CommentContainer = React.createClass({
       url: 'http://localhost:3000/teams/' + this.props.team_id + "/articles/" + this.props.article_id + "/comments/" + comment_id,
       type: 'delete',
     }).done(function(response){
-      this.setState({
-        comments: response.comments
-      })
+      $.ajax({
+        url: 'http://localhost:3000/teams/' + this.props.team_id + "/articles/" + this.props.article_id
+      }).done(function(response){
+        this.setState({
+          comments: response.comments
+        });
+      }.bind(this));
     }.bind(this));
   },
   render: function () {
