@@ -68,8 +68,12 @@ var TeamShowArticlesContainer = React.createClass({
             onSubmitForm={ this.handleSubmitForm } />
     }
     return (
-      <div>
-        <ul>
+      <div className="container">
+      <div className="all-articles article-post-button">
+        { renderPostArticle }
+      </div>
+      <div className="card">
+        <ul className="row">
         {
           this.state.articles.map( function( article ) {
             return <ArticleTitleContainer
@@ -78,8 +82,7 @@ var TeamShowArticlesContainer = React.createClass({
           })
         }
         </ul>
-
-        { renderPostArticle }
+      </div>
       </div>
     )
   }

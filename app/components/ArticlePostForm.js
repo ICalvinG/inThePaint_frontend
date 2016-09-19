@@ -3,13 +3,13 @@ var React = require('react');
 var ArticlePostForm = React.createClass({
   render: function () {
     return (
-      <div>
-        <form onSubmit={ this.props.onSubmitForm }>
-          <input type="text" name="title" onChange={ this.props.onUpdate } placeholder="article title" value={ this.props.articleTitle } />
+      <div className="form-group col-lg-12 text-center form-top">
+        <form className="article-form" onSubmit={ this.props.onSubmitForm }>
+          <input type="text" className="form-control article-space" rows="1" name="title" onChange={ this.props.onUpdate } placeholder="article title" value={ this.props.articleTitle } />
 
-          <textarea name="body" onChange={ this.props.onUpdate } placeholder="article body" value={ this.props.articleBody }></textarea>
+          <textarea className="form-control article-space" rows="30" name="body" onChange={ this.props.onUpdate } placeholder="article body" value={ this.props.articleBody }></textarea>
 
-          <input type="submit" value="submit article" />
+          <input className="btn btn-default" type="submit" value="submit article" />
         </form>
       </div>
     )
