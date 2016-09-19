@@ -23,8 +23,9 @@ var CommentBodyContainer = React.createClass({
 				comments: { body: this.state.commentBody, article_id: this.state.comment.article_id, user_id: this.state.comment.user_id }
 			}
 		}).done(function(response){
+			debugger;
 			this.setState({
-				comment: response.updated_comment,
+				comment: { body: response.comment.body } ,
 				editing: false
 			})
 		}.bind(this));
@@ -35,7 +36,7 @@ var CommentBodyContainer = React.createClass({
 	renderNormal: function() {
 		return (
 			<div>
-				<p>{this.state.comment.body}</p>
+				<p>{this.state.comment.body}</p> 
 				<button type="button" className="btn btn-default edit-btn" onClick={this.handleEdit}>Edit</button>
 				<button type="button" className="btn btn-default" onClick={this.handleCommentDelete}>Delete</button>
 				<hr></hr>

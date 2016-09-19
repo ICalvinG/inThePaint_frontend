@@ -112,6 +112,17 @@ li {
   padding-bottom: 50px;
 }
 
+/* PLAYER */
+
+.player {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.all-players {
+  margin-top: 90px;
+}
+
 /* BUTTONS */
 
 .button {
