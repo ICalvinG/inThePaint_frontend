@@ -1,5 +1,7 @@
 var React = require('react');
 var CommentContainer = require('../containers/CommentContainer');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link
 var ArticleEditContainer = require('../containers/ArticleEditContainer');
 var ArticleDeleteButton = require('../components/ArticleDeleteButton');
 var $ = require('jquery');
@@ -79,6 +81,10 @@ var ArticleShowContainer = React.createClass({
     var user = this.state.article.user_id
     return (
       <div className="container">
+        <div className="home-button">
+          <Link className="btn btn-default" to='/'>Home</Link>
+        </div>
+        <hr></hr>
         <h1>{ this.state.article.title }</h1>
 
         <p>{ this.state.article.body }</p>
