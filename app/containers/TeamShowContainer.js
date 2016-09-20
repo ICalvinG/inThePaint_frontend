@@ -3,6 +3,8 @@ var TeamShowHeader = require('../components/TeamShowHeader');
 var TeamShowLinks = require('../components/TeamShowLinks');
 var TeamShowPlayersContainer = require('../containers/TeamShowPlayersContainer');
 var TeamShowArticlesContainer = require('../containers/TeamShowArticlesContainer');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link
 var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
@@ -50,6 +52,10 @@ var TeamShowContainer = React.createClass({
 		}
 		return (
 			<div>
+        <div className="container home-button">
+          <Link className="btn btn-default" to='/'>Home</Link>
+        </div>
+
 				<TeamShowHeader
 						team={ this.state.team } />
 
