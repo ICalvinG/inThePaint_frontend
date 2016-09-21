@@ -53,7 +53,8 @@ var TeamShowContainer = React.createClass({
 			var teamShowRender =
 				<TeamShowArticlesContainer
 						team={ this.state.team }
-						articles={ this.state.articles } />
+						articles={ this.state.articles }
+						sessionId={ this.context.sessionId } />
 		}
 		return (
 			<div>

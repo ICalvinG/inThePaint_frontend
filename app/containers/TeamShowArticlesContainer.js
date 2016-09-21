@@ -57,6 +57,7 @@ var TeamShowArticlesContainer = React.createClass({
     if ( this.state.postButton ) {
       var renderPostArticle =
         <ArticlePostButton
+            sessionId={ this.props.sessionId }
             onToggleArticleForm={ this.handleToggleArticleForm } />
     } else {
       var renderPostArticle =
