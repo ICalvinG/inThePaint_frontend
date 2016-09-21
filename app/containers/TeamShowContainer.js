@@ -10,7 +10,7 @@ var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
 	contextTypes: {
-     currentUser: React.PropTypes.object.isRequired,
+     currentUser: React.PropTypes.string,
      sessionId: React.PropTypes.string
   },
 	getInitialState: function() {
@@ -44,7 +44,7 @@ var TeamShowContainer = React.createClass({
 			})
 		}
 	},
-	render: function(){
+	render: function() {
 		if ( this.state.roster ) {
 			var teamShowRender =
 				<TeamShowPlayersContainer
@@ -54,7 +54,8 @@ var TeamShowContainer = React.createClass({
 				<TeamShowArticlesContainer
 						team={ this.state.team }
 						articles={ this.state.articles }
-						sessionId={ this.context.sessionId } />
+						sessionId={ this.context.sessionId }
+						currentUser={ this.context.currentUser } />
 		}
 		return (
 			<div>

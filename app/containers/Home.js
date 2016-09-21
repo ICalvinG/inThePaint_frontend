@@ -6,7 +6,7 @@ var AuthenticateContainer = require('../containers/AuthenticateContainer');
 
 var Home = React.createClass({
   contextTypes: {
-    currentUser: React.PropTypes.object.isRequired,
+    currentUser: React.PropTypes.string,
     sessionId: React.PropTypes.string,
     handleShowChildren: React.PropTypes.func.isRequired,
   },

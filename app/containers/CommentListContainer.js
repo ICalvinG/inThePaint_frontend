@@ -13,7 +13,9 @@ var CommentListCiontainer = React.createClass({
 							key={comment.id}
 							comment={comment}
 							team_id ={team_id}
-							onCommentDelete={ this.props.handleCommentDelete } />
+							onCommentDelete={ this.props.handleCommentDelete }
+							currentUser={ this.props.currentUser }
+							sessionId={ this.props.sessionId } />
 					}.bind(this))
 				}
 			</div>

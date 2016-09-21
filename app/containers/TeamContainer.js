@@ -20,7 +20,6 @@ var TeamContainer = React.createClass({
 		this.props.onShowChildren();
 	},
 	render: function() {
-		// debugger;
 		return (
 				<TeamView team={this.props.team} onTeamClick={this.handleTeamClick} />
 		)

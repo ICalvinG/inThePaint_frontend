@@ -9,7 +9,7 @@ var $ = require("jquery");
 
 var App = React.createClass({
 	childContextTypes: {
-     currentUser: React.PropTypes.object.isRequired,
+     currentUser: React.PropTypes.string,
      sessionId: React.PropTypes.string,
      loggingIn: React.PropTypes.bool.isRequired,
      signingUp: React.PropTypes.bool.isRequired,
@@ -19,7 +19,7 @@ var App = React.createClass({
   },
   getChildContext: function() {
      return {
-     	currentUser: this.state.currentUser,
+     	currentUser: this.state.currentUserId,
 			sessionId: this.state.sessionId,
 			loggingIn: this.state.loggingIn,
 			signingUp: this.state.signingUp,
@@ -31,7 +31,7 @@ var App = React.createClass({
 	getInitialState: function () {
 		return {
 			home: true,
-			currentUser: {},
+			currentUserId: "" || localStorage.current_user_id,
 			sessionId: "" || localStorage.session,
 			loggingIn: this.props.route.indexRoute.loggingIn,
 			signingUp: this.props.route.indexRoute.signingUp
@@ -74,11 +74,11 @@ var App = React.createClass({
 			}
 		}).done( function( response ) {
 			window.localStorage.setItem("session", response.session_id);
-			window.localStorage.setItem("current_user", response.current_user.username)
+			window.localStorage.setItem("current_user_id", response.current_user.id)
 
 			this.setState({
 				home: true,
-				currentUser: response.current_user,
+				currentUser: response.current_user.id,
 				sessionId: localStorage.session,
 				loggingIn: false
 			});
@@ -94,7 +94,7 @@ var App = React.createClass({
 			}
 		}).done( function ( response ) {
 			window.localStorage.setItem("session", response.session_id);
-			window.localStorage.setItem("current_user", response.current_user.username)
+			window.localStorage.setItem("current_user_id", response.current_user.id)
 
 			this.setState({
 				home: true,
@@ -111,7 +111,7 @@ var App = React.createClass({
 			type: "GET"
 		}).done( function( response ) {
 			window.localStorage.removeItem("session");
-			window.localStorage.removeItem("current_user");
+			window.localStorage.removeItem("current_user_id");
 
 			this.setState({
 				home: true,

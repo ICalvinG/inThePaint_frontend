@@ -6,7 +6,7 @@ var SignUpFormContainer = require('../containers/SignUpFormContainer');
 
 var AuthenticateContainer = React.createClass({
    contextTypes: {
-    currentUser: React.PropTypes.object.isRequired,
+    currentUser: React.PropTypes.string,
     sessionId: React.PropTypes.string,
     loggingIn: React.PropTypes.bool.isRequired,
     signingUp: React.PropTypes.bool.isRequired,
