@@ -1,6 +1,22 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
+var Link = require('react-router').Link;
 
 var NavBar = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+  handleNavBarClick: function( event ) {
+    event.preventDefault();
+    this.context.router.push({
+      pathname: '/authenticate_user',
+      query: {
+        id: event.target.id
+      }
+    });
+
+    this.props.onToggleAuthenticationView( event );
+  },
   render: function () {
     if ( this.props.sessionId ) {
       var nav =
@@ -10,8 +26,8 @@ var NavBar = React.createClass({
     } else {
       var nav =
         <ul className="nav navbar-nav navbar-right">
-          <li><a id="sign-up-link" onClick={ this.props.onToggleAuthenticationView }>Sign Up</a></li>
-          <li><a id="login-link" onClick={ this.props.onToggleAuthenticationView }>Login</a></li>
+          <li><a id="sign-up-link" onClick={ this.handleNavBarClick }>Sign Up</a></li>
+          <li><a id="login-link" onClick={ this.handleNavBarClick }>Login</a></li>
         </ul>
     }
     return (
@@ -24,7 +40,7 @@ var NavBar = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" onClick={ this.props.onReturnHome }>In The Paint</a>
+            <Link className="navbar-brand" to='/'>In The Paint</Link>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -15,7 +15,8 @@ var TeamShowContainer = require('../containers/TeamShowContainer');
 var router = (
 	<Router history={hashHistory}>
 		<Route path='/' component={ App }>
-			<IndexRoute component={ Home } />
+			<IndexRoute component={ Home } loggingIn={ false } signingUp={ false } />
+      <Route path="authenticate_user" component={ AuthenticateContainer } />
       <Route path="teams" component={TeamShowContainer} />
       <Route path="teams/:team_id/articles/:id" component={ArticleShowContainer} />
 		</Route>

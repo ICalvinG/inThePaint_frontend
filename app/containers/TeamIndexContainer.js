@@ -23,7 +23,11 @@ var TeamIndexContainer = React.createClass({
 			<div className="container card teams">
 				<div className="row">
 					{
-						this.state.teams.map(function(team){ return <TeamContainer key={team.id} team={team} /> })
+						this.state.teams.map( function( team ) { return <TeamContainer
+												key={team.id}
+												team={team}
+												onShowChildren={ this.props.handleShowChildren } />
+						}.bind(this))
 					}
 				</div>
 			</div>

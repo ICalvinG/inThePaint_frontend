@@ -5,18 +5,42 @@ var LoginFormContainer = require('../containers/LoginFormContainer');
 var SignUpFormContainer = require('../containers/SignUpFormContainer');
 
 var AuthenticateContainer = React.createClass({
+   contextTypes: {
+    currentUser: React.PropTypes.object.isRequired,
+    sessionId: React.PropTypes.string,
+    loggingIn: React.PropTypes.bool.isRequired,
+    signingUp: React.PropTypes.bool.isRequired,
+    handleShowChildren: React.PropTypes.func.isRequired,
+    handleSubmitLoginForm: React.PropTypes.func.isRequired,
+    handleSubmitSignUpForm: React.PropTypes.func.isRequired
+  },
   getInitialState: function () {
     return {
-      login: this.props.loggingIn,
+      loggingIn: false,
+      signingUp: false,
       username: "",
       email: "",
       password: ""
     }
   },
-  componentWillReceiveProps: function ( nextProps ) {
+  componentWillMount: function () {
+    if ( this.props.location.query.id === "sign-up-link" ) {
+      this.setState({
+        loggingIn: false,
+        signingUp: true
+      });
+    } else {
+      this.setState({
+        loggingIn: true,
+        signingUp: false
+      });
+    }
+  },
+  componentWillReceiveProps: function ( nextProps, nextContext ) {
     this.setState({
-      login: nextProps.loggingIn
-    })
+      loggingIn: nextContext.loggingIn,
+      signingUp: nextContext.signingUp
+    });
   },
   handleUpdateLoginForm: function ( obj ) {
     this.setState( obj );
@@ -31,14 +55,14 @@ var AuthenticateContainer = React.createClass({
       password: this.state.password
     }
 
-    this.props.handleSubmitSignUpForm( e, obj )
+    this.context.handleSubmitSignUpForm( e, obj )
   },
   handleSubmitLoginForm: function ( e ) {
     var obj = {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.handleSubmitLoginForm( e, obj );
+    this.context.handleSubmitLoginForm( e, obj );
   },
   renderLoginForm: function () {
     return <LoginFormContainer
@@ -56,7 +80,7 @@ var AuthenticateContainer = React.createClass({
               handleSubmitSignUpForm={ this.handleSubmitSignUpForm } />
   },
   render: function () {
-    if ( this.state.login ) {
+    if ( this.state.loggingIn ) {
       var form = this.renderLoginForm()
     } else {
       var form = this.renderSignUpForm()
