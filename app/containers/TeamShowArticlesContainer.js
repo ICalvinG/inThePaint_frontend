@@ -9,6 +9,7 @@ var TeamShowArticlesContainer = React.createClass({
     return {
       team: this.props.team,
       articles: this.props.articles,
+      currentUserId: this.props.currentUser,
       postButton: true,
       title: "",
       body: ""
@@ -17,7 +18,8 @@ var TeamShowArticlesContainer = React.createClass({
   componentWillReceiveProps: function ( nextProps ) {
     this.setState({
       team: nextProps.team,
-      articles: nextProps.articles
+      articles: nextProps.articles,
+      currentUserId: nextProps.currentUser
     })
   },
   handleToggleArticleForm: function (e) {
@@ -40,7 +42,7 @@ var TeamShowArticlesContainer = React.createClass({
       url: "http://localhost:3000/teams/" + this.state.team.id + "/articles",
       type: "POST",
       data: {
-        articles: { title: this.state.title, body: this.state.body, team_id: this.state.team.id, user_id: 1 }
+        articles: { title: this.state.title, body: this.state.body, team_id: this.state.team.id, user_id: this.state.currentUserId }
       }
     }).done( function( response ) {
       this.state.articles.push( response.article );
@@ -57,6 +59,7 @@ var TeamShowArticlesContainer = React.createClass({
     if ( this.state.postButton ) {
       var renderPostArticle =
         <ArticlePostButton
+            sessionId={ this.props.sessionId }
             onToggleArticleForm={ this.handleToggleArticleForm } />
     } else {
       var renderPostArticle =

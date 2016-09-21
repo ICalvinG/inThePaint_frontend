@@ -25,7 +25,7 @@ var CommentContainer = React.createClass({
       url: 'http://localhost:3000/teams/' + this.props.team_id + "/articles/" + this.props.article_id + "/comments/",
       type: "POST",
       data: {
-        comments: { body: this.state.postCommentBody, article_id: this.props.article_id, user_id: this.props.user_id }
+        comments: { body: this.state.postCommentBody, article_id: this.props.article_id, user_id: parseInt(this.props.currentUser) }
       }
     }).done( function( response ) {
       this.state.comments.push( response.comment );
@@ -55,13 +55,17 @@ var CommentContainer = React.createClass({
       <div className="container card comment-container">
       	<CommentFormContainer
           postCommentBody={ this.state.postCommentBody }
+          currentUser={ this.props.currentUser }
+          sessionId={ this.props.sessionId }
           handleUpdatePostComment={ this.handleUpdatePostComment }
           handleSubmitPostComment={ this.handleSubmitPostComment } />
 
       	<CommentListContainer
           team_id={this.props.team_id}
       		comments={this.state.comments}
-          handleCommentDelete={ this.handleCommentDelete } />
+          handleCommentDelete={ this.handleCommentDelete }
+          currentUser={ this.props.currentUser }
+          sessionId={ this.props.sessionId } />
       </div>
     )
   }

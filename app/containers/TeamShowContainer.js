@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 var TeamShowHeader = require('../components/TeamShowHeader');
 var TeamShowLinks = require('../components/TeamShowLinks');
 var TeamShowPlayersContainer = require('../containers/TeamShowPlayersContainer');
@@ -8,6 +9,10 @@ var Link = ReactRouter.Link
 var $ = require('jquery');
 
 var TeamShowContainer = React.createClass({
+	contextTypes: {
+     currentUser: React.PropTypes.string,
+     sessionId: React.PropTypes.string
+  },
 	getInitialState: function() {
 		return {
 			team: {},
@@ -39,7 +44,7 @@ var TeamShowContainer = React.createClass({
 			})
 		}
 	},
-	render: function(){
+	render: function() {
 		if ( this.state.roster ) {
 			var teamShowRender =
 				<TeamShowPlayersContainer
@@ -48,14 +53,12 @@ var TeamShowContainer = React.createClass({
 			var teamShowRender =
 				<TeamShowArticlesContainer
 						team={ this.state.team }
-						articles={ this.state.articles } />
+						articles={ this.state.articles }
+						sessionId={ this.context.sessionId }
+						currentUser={ this.context.currentUser } />
 		}
 		return (
 			<div>
-        <div className="container home-button">
-          <Link className="btn btn-default" to='/'>Home</Link>
-        </div>
-
 				<TeamShowHeader
 						team={ this.state.team } />
 

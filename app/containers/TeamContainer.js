@@ -16,9 +16,10 @@ var TeamContainer = React.createClass({
 				name: this.props.team.market + " " + this.props.team.name
 			}
 		});
+
+		this.props.onShowChildren();
 	},
 	render: function() {
-		// debugger;
 		return (
 				<TeamView team={this.props.team} onTeamClick={this.handleTeamClick} />
 		)

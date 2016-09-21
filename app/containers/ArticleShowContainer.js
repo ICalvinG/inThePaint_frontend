@@ -1,13 +1,16 @@
 var React = require('react');
+var $ = require('jquery');
+var PropTypes = React.PropTypes;
+
 var CommentContainer = require('../containers/CommentContainer');
 var ReactRouter = require('react-router');
-var Link = ReactRouter.Link
 var ArticleEditContainer = require('../containers/ArticleEditContainer');
 var ArticleDeleteButton = require('../components/ArticleDeleteButton');
-var $ = require('jquery');
 
 var ArticleShowContainer = React.createClass({
   contextTypes: {
+    currentUser: React.PropTypes.string.isRequired,
+    sessionId: React.PropTypes.string,
     router: React.PropTypes.object.isRequired
   },
   getInitialState: function () {
@@ -76,28 +79,27 @@ var ArticleShowContainer = React.createClass({
     }.bind(this))
   },
   render: function () {
-    var article = this.state.article.id
-    var team = this.state.article.team_id
-    var user = this.state.article.user_id
-    return (
-      <div className="container">
-        <div className="home-button">
-          <Link className="btn btn-default" to='/'>Home</Link>
-        </div>
-        <hr></hr>
-        <h1>{ this.state.article.title }</h1>
-
-        <p>{ this.state.article.body }</p>
-
-        <ArticleEditContainer
+    if ( localStorage.session && this.context.currentUser === localStorage.session && parseInt(this.context.currentUser) === this.state.article.user_id ) {
+      var articleEdit =
+        <div>
+          <ArticleEditContainer
             articleBody={ this.state.body }
             editing={ this.state.editing }
             handleToggleEditArticleForm={ this.handleToggleEditArticleForm }
             handleUpdateArticle={ this.handleUpdateArticle }
             onSubmitArticleEdit={ this.handleSubmitArticleEdit } />
 
-        <ArticleDeleteButton
+          <ArticleDeleteButton
             handleDeleteArticle={ this.handleDeleteArticle } />
+        </div>
+    }
+    return (
+      <div className="container">
+        <h1>{ this.state.article.title }</h1>
+
+        <p>{ this.state.article.body }</p>
+
+        { articleEdit }
 
         <hr></hr>
 
@@ -105,9 +107,11 @@ var ArticleShowContainer = React.createClass({
 
         <CommentContainer
           comments={this.state.comments}
-          team_id={team}
-          article_id={article}
-          user_id={user} />
+          team_id={ this.state.team.id }
+          article_id={ this.state.article.id }
+          user_id={ this.state.article.user_id }
+          currentUser={ this.context.currentUser }
+          sessionId={ this.context.sessionId } />
       </div>
     )
   }
