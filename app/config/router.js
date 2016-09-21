@@ -6,18 +6,18 @@ var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require('../containers/App');
+var Home = require('../containers/Home');
+var AuthenticateContainer = require('../containers/AuthenticateContainer');
 var ArticleShowContainer = require('../containers/ArticleShowContainer');
 var TeamShowContainer = require('../containers/TeamShowContainer');
 
 
 var router = (
 	<Router history={hashHistory}>
-		<Route path='/'>
-			<IndexRoute component={App} />
-			{/* // if im correct, this method only works if you know type the path in the url */}
+		<Route path='/' component={ App }>
+			<IndexRoute component={ Home } />
       <Route path="teams" component={TeamShowContainer} />
       <Route path="teams/:team_id/articles/:id" component={ArticleShowContainer} />
-      {/* // this method sends the info over a query string. check "this.context.rounter.push" function on TeamContainer.js */}
 		</Route>
 	</Router>
 );

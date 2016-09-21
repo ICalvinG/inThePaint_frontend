@@ -52,6 +52,7 @@ var TeamShowContainer = React.createClass({
 		}
 		return (
 			<div>
+
         <div className="container home-button">
           <Link className="btn btn-default" to='/'>Home</Link>
         </div>
