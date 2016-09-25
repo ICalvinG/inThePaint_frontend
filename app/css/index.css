@@ -138,6 +138,22 @@ li {
   margin-right: 30px;
 }
 
+/* LOGIN FORM */
+
+.login-form {
+  margin-top: 150px;
+}
+
+.input-top {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.input-bottom {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 /* HOVER ANIMATIONS */
 
 .hvr-grow {

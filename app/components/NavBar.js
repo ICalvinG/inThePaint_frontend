@@ -26,8 +26,8 @@ var NavBar = React.createClass({
     } else {
       var nav =
         <ul className="nav navbar-nav navbar-right">
-          <li><a id="sign-up-link" onClick={ this.handleNavBarClick }>Sign Up</a></li>
-          <li><a id="login-link" onClick={ this.handleNavBarClick }>Login</a></li>
+          <li><a href="#" id="sign-up-link" onClick={ this.handleNavBarClick }>Sign Up</a></li>
+          <li><a href="#" id="login-link" onClick={ this.handleNavBarClick }>Login</a></li>
         </ul>
     }
     return (
